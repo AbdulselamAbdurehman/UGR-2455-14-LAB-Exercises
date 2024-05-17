@@ -27,7 +27,32 @@ fun isPrime(n: Int): Boolean {
     return true
 }
 
+fun isPalindrome(number: Int): Boolean {
+    var original = number
+    var reversed = 0
+    while (original != 0) {
+        val digit = original % 10
+        reversed = reversed * 10 + digit
+        original /= 10
+    }
+    return number == reversed
+}
 
 
-fun main() {
+fun main(){
+    val sumOfEvens = sumEvenNumbers()
+    println("Sum of all even numbers from 1 to 50 is: $sumOfEvens")
+
+    val startRange = 10
+    val endRange = 50
+    println("Prime numbers from $startRange to $endRange are:")
+    findPrimeNumbers(startRange, endRange)
+
+    val numberToCheck = 12321
+    if (isPalindrome(numberToCheck)) {
+        println("$numberToCheck is a palindrome")
+    } else {
+        println("$numberToCheck is not a palindrome")
+    }
+
 }
